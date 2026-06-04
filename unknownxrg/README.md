@@ -6,6 +6,13 @@ A high-fidelity, responsive, and neon-cyberpunk themed portfolio website enginee
 
 ---
 
+## 🔒 Production Security Notice
+
+> [!IMPORTANT]
+> **Source Obfuscation & Layout Integrity:** 
+> To protect the core intellectual property of Inner Void Studio, the repository layout has been intentionally fragmented and decoupled. The functional production build is compiled and securely distributed exclusively via Netlify's pipeline. Cloning or downloading this repository as-is will result in broken dependencies and non-functional routing.
+
+---
 ## 🛠️ Tech Stack & Architecture
 
 * **Front-End:** HTML5 / CSS3 (Custom Cyberpunk Variables & Neon Glow FX)
