@@ -14,25 +14,6 @@
 
 ---
 
-<div align="center">
-
-```
-                                                                      ┌────────────────────────────────────────────────────────┐
-                                                                      │                                                        │
-                                                                      │   INNER VOID STUDIO  ·  CORE PIPELINE INTERFACE        │
-                                                                      │                                                        │
-                                                                      │   Project: Official Studio Website & Developer Node    │
-                                                                      │   Design: Immersive Dark Architecture · Glassmorphism  │
-                                                                      │   Philosophy: "We don't just make games; we define     │
-                                                                      │                experiences."                           │
-                                                                      │                                                        │
-                                                                      └────────────────────────────────────────────────────────┘
-```
-
-</div>
-
----
-
 ## 🌌 The Void Manifesto
 
 This is the central digital hub for **INNER VOID STUDIO**—an independent production house forged to design atmosphere-heavy, psychological, and high-impact interactive experiences. 
