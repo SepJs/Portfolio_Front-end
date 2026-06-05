@@ -17,16 +17,16 @@
 <div align="center">
 
 ```
-┌────────────────────────────────────────────────────────┐
-│                                                        │
-│   INNER VOID STUDIO  ·  CORE PIPELINE INTERFACE        │
-│                                                        │
-│   Project: Official Studio Website & Developer Node    │
-│   Design: Immersive Dark Architecture · Glassmorphism  │
-│   Philosophy: "We don't just make games; we define     │
-│                experiences."                           │
-│                                                        │
-└────────────────────────────────────────────────────────┘
+                                                                      ┌────────────────────────────────────────────────────────┐
+                                                                      │                                                        │
+                                                                      │   INNER VOID STUDIO  ·  CORE PIPELINE INTERFACE        │
+                                                                      │                                                        │
+                                                                      │   Project: Official Studio Website & Developer Node    │
+                                                                      │   Design: Immersive Dark Architecture · Glassmorphism  │
+                                                                      │   Philosophy: "We don't just make games; we define     │
+                                                                      │                experiences."                           │
+                                                                      │                                                        │
+                                                                      └────────────────────────────────────────────────────────┘
 ```
 
 </div>
