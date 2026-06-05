@@ -14,25 +14,6 @@
 
 ---
 
-<div align="center">
-
-┌────────────────────────────────────────────────────────┐
-│                                                        │
-│   ADIB VETERINARY CLINIC  ·  CORE ARCHITECTURE         │
-│                                                        │
-│   Type: Premium Responsive Interface Engine            │
-│   Stack: Vue 3 [CDN]  ·  Tailwind CSS  ·  Vanilla CSS  │
-│   Sub-Systems: Async Database Simulation  ·  Bilingual │
-│                                                        │
-│   "Engineered for maximum care and elite aesthetics."  │
-│                                                        │
-└────────────────────────────────────────────────────────┘
-
-
-</div>
-
----
-
 ## 🌌 System Overview
 
 **ADIB Clinic** Is a high-performance, single-page luxury veterinary application built to bridge the gap between pixel-perfect micro-interactions and dual-language responsive rendering loops. 
