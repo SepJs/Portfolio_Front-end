@@ -73,7 +73,7 @@ We bridge the gap between heavy software logic and raw digital dark art. This re
 
 <div align="center">
 
-`ENTER THE VOID. TRANSMISSION SECURED.`
+Developed with 🌌 by Sepanta Ziaei // Founder of Inner Void.
 
 <br>
 
