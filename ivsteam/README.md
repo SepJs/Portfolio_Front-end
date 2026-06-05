@@ -1,6 +1,5 @@
 <div align="center">
 
-<!-- هدر اختصاصی و تاریک INNER VOID STUDIO -->
 [![Header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,40:0d0020,80:4a0080,100:9945ff&height=320&section=header&text=INNER%20VOID%20STUDIO&fontSize=68&fontColor=ffffff&fontAlignY=45&desc=Official%20Developer%20Portal%20%C2%B7%20The%20Gold%20Standard&descAlignY=65&descSize=16&animation=fadeIn&stroke=9945ff&strokeWidth=1)](https://ivsteam.netlify.app)
 
 <br>
@@ -17,6 +16,7 @@
 
 <div align="center">
 
+```
 ┌────────────────────────────────────────────────────────┐
 │                                                        │
 │   INNER VOID STUDIO  ·  CORE PIPELINE INTERFACE        │
@@ -27,7 +27,7 @@
 │                experiences."                           │
 │                                                        │
 └────────────────────────────────────────────────────────┘
-
+```
 
 </div>
 
