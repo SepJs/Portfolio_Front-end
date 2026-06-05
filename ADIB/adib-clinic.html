@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>کلینیک دامپزشکی ادیب | ADIB Veterinary Clinic</title>
+  <meta name="title" content="کلینیک دامپزشکی ادیب | ADIB Veterinary Clinic">
+  <meta name="description" content="کلینیک دامپزشکی لوکس ادیب ارائه دهنده خدمات تخصصی درمانی، جراحی و مراقبتی حیوانات خانگی همراه با کادر مجرب و متخصص.">
+  <meta name="keywords" content="دامپزشکی, کلینیک دامپزشکی تهران, جراحی حیوانات, پت شاپ, درمان سگ و گربه, کلینیک ادیب">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adibclinic.com/">
+  <meta property="og:title" content="کلینیک دامپزشکی ادیب | ADIB Veterinary Clinic">
+  <meta property="og:description" content="محیطی آرام و لوکس برای مراقبت حرفه‌ای از حیوانات خانگی شما.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=1200">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/Front-end/ADIB/tailwind.config.js"></script>
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/Front-end/ADIB/Adib-clinic.css">
+
+</head>
+<body class="bg-[#FDFBF7] text-[#1A2421] transition-colors duration-300">
+
+  <div id="app" :class="{'dark': isDarkMode}" class="min-h-screen antialiased selection:bg-luxury-gold selection:text-white transition-colors duration-300">
+    <div class="bg-luxury-cream dark:bg-luxury-charcoal text-luxury-charcoal dark:text-luxury-cream transition-colors duration-300 min-h-screen">
+      
+      <!--====================== HEADER / HERO ======================-->
+      <header class="sticky top-0 z-40 bg-luxury-cream/80 dark:bg-luxury-charcoal/80 backdrop-blur-md border-b border-luxury-sage/10 dark:border-luxury-gold/10 transition-colors">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-bold tracking-widest text-luxury-sage dark:text-luxury-gold">ADIB</span>
+            <span class="text-xs uppercase tracking-wider text-neutral-400 dark:text-neutral-500 hidden sm:inline">| {{ t.clinicLabel }}</span>
+          </div>
+          
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="#about" class="hover:text-luxury-sage dark:hover:text-luxury-gold transition-colors">{{ t.navAbout }}</a>
+            <a href="#team" class="hover:text-luxury-sage dark:hover:text-luxury-gold transition-colors">{{ t.navTeam }}</a>
+            <a href="#location" class="hover:text-luxury-sage dark:hover:text-luxury-gold transition-colors">{{ t.navContact }}</a>
+            <a href="#contact" class="hover:text-luxury-sage dark:hover:text-luxury-gold transition-colors">{{ t.navMessage }}</a>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <!-- Language Toggle Button with Animation -->
+            <button @click="toggleLanguage" class="flex items-center gap-1.5 p-2 px-3 rounded-full border border-luxury-sage/20 dark:border-luxury-gold/20 hover:bg-luxury-sage/10 dark:hover:bg-luxury-gold/10 hover:scale-105 active:scale-95 transform transition-all duration-300 text-xs font-semibold" aria-label="Toggle Language">
+              <span id="lang-icon" class="inline-block">🌐</span>
+              <span>{{ currentLang === 'fa' ? 'English' : 'فارسی' }}</span>
+            </button>
+
+            <!-- Theme Toggle -->
+            <button @click="toggleTheme" class="p-2 rounded-full border border-luxury-sage/20 dark:border-luxury-gold/20 hover:bg-luxury-sage/10 dark:hover:bg-luxury-gold/10 hover:scale-105 active:scale-95 transform transition-all duration-300" aria-label="Toggle Theme">
+              <svg v-if="isDarkMode" id="theme-icon" class="w-5 h-5 text-luxury-gold" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" /></svg>
+              <svg v-else id="theme-icon" class="w-5 h-5 text-luxury-sage" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+            </button>
+            
+            <!-- Reservation Button -->
+            <button @click="openModal" class="bg-luxury-sage dark:bg-luxury-gold text-white dark:text-luxury-charcoal px-5 py-2.5 rounded-lg text-sm font-medium shadow-md hover:bg-opacity-90 dark:hover:bg-opacity-90 transform hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+              {{ t.btnReserve }}
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main>
+        <!-- Hero Section -->
+        <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 grid md:grid-cols-12 gap-12 items-center">
+          <div class="md:col-span-6 space-y-6 order-2 md:order-1" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+            <span class="text-sm font-bold tracking-wider text-luxury-sage dark:text-luxury-gold uppercase block">{{ t.heroWelcome }}</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight" v-html="t.heroTitle"></h1>
+            <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-xl">
+              {{ t.heroDesc }}
+            </p>
+            <div class="pt-4 flex flex-wrap gap-4" :class="currentLang === 'fa' ? 'justify-start' : 'justify-start'">
+              <button @click="openModal" class="bg-luxury-sage dark:bg-luxury-gold text-white dark:text-luxury-charcoal px-8 py-3 rounded-xl font-medium shadow-xl hover:shadow-luxury-sage/20 transform hover:-translate-y-1 transition-all duration-300">
+                {{ t.heroBtnInstant }}
+              </button>
+              <a href="#about" class="border border-luxury-sage/40 dark:border-luxury-gold/40 px-8 py-3 rounded-xl font-medium hover:bg-luxury-sage/5 dark:hover:bg-luxury-gold/5 transform hover:-translate-y-1 transition-all duration-300 inline-block">
+                {{ t.heroBtnMore }}
+              </a>
+            </div>
+          </div>
+          
+          <div class="md:col-span-6 order-1 md:order-2 relative">
+            <div class="absolute inset-0 bg-gradient-to-tr from-luxury-sage/20 to-transparent dark:from-luxury-gold/10 rounded-2xl filter blur-2xl"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800" 
+              alt="Veterinary Clinic Interior Luxury Design" 
+              class="rounded-2xl shadow-2xl relative z-10 w-full object-cover aspect-[4/3] border border-luxury-sage/10 dark:border-luxury-gold/10 transform hover:scale-[1.01] transition-transform duration-500"
+            />
+          </div>
+        </section>
+
+        <hr class="border-luxury-sage/10 dark:border-luxury-gold/10 max-w-7xl mx-auto" />
+
+        <!--====================== ABOUT US ======================-->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div class="grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7 grid grid-cols-2 gap-4 sm:gap-6">
+              <div class="bg-luxury-sage/5 dark:bg-luxury-cardDark p-8 rounded-2xl border border-luxury-sage/10 text-center transform hover:-translate-y-1 transition-transform duration-300">
+                <span class="text-4xl font-bold text-luxury-sage dark:text-luxury-gold block mb-2">{{ t.stat1Num }}</span>
+                <span class="text-sm font-medium tracking-wide text-neutral-500 dark:text-neutral-400">{{ t.stat1Title }}</span>
+              </div>
+              <div class="bg-luxury-sage/5 dark:bg-luxury-cardDark p-8 rounded-2xl border border-luxury-sage/10 text-center transform hover:-translate-y-1 transition-transform duration-300">
+                <span class="text-4xl font-bold text-luxury-sage dark:text-luxury-gold block mb-2">{{ t.stat2Num }}</span>
+                <span class="text-sm font-medium tracking-wide text-neutral-500 dark:text-neutral-400">{{ t.stat2Title }}</span>
+              </div>
+              <div class="bg-luxury-sage/5 dark:bg-luxury-cardDark p-8 rounded-2xl border border-luxury-sage/10 text-center transform hover:-translate-y-1 transition-transform duration-300">
+                <span class="text-4xl font-bold text-luxury-sage dark:text-luxury-gold block mb-2">{{ t.stat3Num }}</span>
+                <span class="text-sm font-medium tracking-wide text-neutral-500 dark:text-neutral-400">{{ t.stat3Title }}</span>
+              </div>
+              <div class="bg-luxury-sage/5 dark:bg-luxury-cardDark p-8 rounded-2xl border border-luxury-sage/10 text-center transform hover:-translate-y-1 transition-transform duration-300">
+                <span class="text-4xl font-bold text-luxury-sage dark:text-luxury-gold block mb-2">{{ t.stat4Num }}</span>
+                <span class="text-sm font-medium tracking-wide text-neutral-500 dark:text-neutral-400">{{ t.stat4Title }}</span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+              <h2 class="text-3xl font-bold">{{ t.aboutTitle }}</h2>
+              <div class="w-16 h-1 bg-luxury-sage dark:bg-luxury-gold rounded" :class="currentLang === 'fa' ? 'mr-0' : 'ml-0'"></div>
+              <p class="text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                {{ t.aboutDesc }}
+              </p>
+              <ul class="space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-luxury-sage dark:text-luxury-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>{{ t.aboutFeat1 }}</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-luxury-sage dark:text-luxury-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>{{ t.aboutFeat2 }}</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-5 h-5 text-luxury-sage dark:text-luxury-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  <span>{{ t.aboutFeat3 }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <hr class="border-luxury-sage/10 dark:border-luxury-gold/10 max-w-7xl mx-auto" />
+
+        <!--====================== TEAM CARDS ======================-->
+        <section id="team" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div class="text-center space-y-4 mb-16">
+            <h2 class="text-3xl font-bold">{{ t.teamTitle }}</h2>
+            <p class="text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto text-sm">{{ t.teamSub }}</p>
+            <div class="w-16 h-1 bg-luxury-sage dark:bg-luxury-gold mx-auto rounded"></div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article v-for="member in currentTeamData" :key="member.id" class="group bg-white dark:bg-luxury-cardDark rounded-2xl overflow-hidden shadow-sm border border-luxury-sage/5 dark:border-neutral-800 hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+              <div class="overflow-hidden aspect-square bg-neutral-100 dark:bg-neutral-800 relative">
+                <img :src="member.image" :alt="member.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-6 space-y-2" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+                <h3 class="text-xl font-bold tracking-tight text-neutral-950 dark:text-white">{{ member.name }}</h3>
+                <span class="text-xs font-semibold tracking-wider text-luxury-sage dark:text-luxury-gold uppercase block">{{ member.role }}</span>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed pt-2 border-t border-neutral-100 dark:border-neutral-800">
+                  {{ member.bio }}
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <hr class="border-luxury-sage/10 dark:border-luxury-gold/10 max-w-7xl mx-auto" />
+
+        <!--====================== LOCATION SECTION ======================-->
+        <section id="location" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div class="grid md:grid-cols-12 gap-12 items-stretch">
+            
+            <!-- Left Side: Interactive Map Interface -->
+            <div class="md:col-span-7 flex flex-col space-y-4">
+              <div class="relative flex-1 min-h-[380px] rounded-2xl overflow-hidden shadow-inner border border-luxury-sage/10 dark:border-luxury-gold/10">
+                <iframe 
+                  src="https://maps.google.com/maps?q=Tehran,Fereshteh&t=&z=15&ie=UTF-8&iwloc=&output=embed" 
+                  class="absolute inset-0 w-full h-full" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="ADIB Clinic Google Map"
+                ></iframe>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <button @click="showClinicBubble = !showClinicBubble" class="flex items-center gap-1.5 text-xs bg-luxury-sage/10 dark:bg-luxury-gold/10 text-luxury-sage dark:text-luxury-gold px-3 py-2 rounded-lg font-medium hover:opacity-80 transition-opacity transform hover:scale-[1.02] active:scale-[0.98]">
+                  {{ t.mapBtnBubble }}
+                </button>
+              </div>
+              <!-- Simulated interactive map popup context info -->
+              <div v-if="showClinicBubble" class="p-4 bg-luxury-sage/5 dark:bg-luxury-cardDark border border-luxury-sage/20 rounded-xl text-xs space-y-1 animate-fadeIn" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+                <p class="font-bold text-luxury-sage dark:text-luxury-gold">{{ t.mapBubbleTitle }}</p>
+                <p class="text-neutral-500">{{ t.mapBubbleDesc }}</p>
+              </div>
+            </div>
+
+            <!-- Right Side: Clean text specs -->
+            <div class="md:col-span-5 flex flex-col justify-between space-y-8" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+              <div class="space-y-4">
+                <h2 class="text-3xl font-bold">{{ t.infoTitle }}</h2>
+                <div class="w-16 h-1 bg-luxury-sage dark:bg-luxury-gold rounded" :class="currentLang === 'fa' ? 'mr-0' : 'ml-0'"></div>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ t.infoSub }}</p>
+              </div>
+
+              <div class="space-y-6">
+                <div class="flex items-start gap-4" :class="currentLang === 'fa' ? 'flex-row' : 'flex-row-reverse'">
+                  <div class="p-3 rounded-xl bg-luxury-sage/5 dark:bg-luxury-cardDark border border-luxury-sage/10 text-luxury-sage dark:text-luxury-gold shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                  </div>
+                  <div class="space-y-1 flex-1">
+                    <h4 class="font-bold text-sm text-neutral-400">{{ t.infoAddressLabel }}</h4>
+                    <p class="text-base font-medium">{{ t.infoAddressValue }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4" :class="currentLang === 'fa' ? 'flex-row' : 'flex-row-reverse'">
+                  <div class="p-3 rounded-xl bg-luxury-sage/5 dark:bg-luxury-cardDark border border-luxury-sage/10 text-luxury-sage dark:text-luxury-gold shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                  </div>
+                  <div class="space-y-1 flex-1">
+                    <h4 class="font-bold text-sm text-neutral-400">{{ t.infoPhoneLabel }}</h4>
+                    <p class="text-base font-medium" dir="ltr" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">{{ t.infoPhoneValue }}</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4" :class="currentLang === 'fa' ? 'flex-row' : 'flex-row-reverse'">
+                  <div class="p-3 rounded-xl bg-luxury-sage/5 dark:bg-luxury-cardDark border border-luxury-sage/10 text-luxury-sage dark:text-luxury-gold shrink-0">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                  </div>
+                  <div class="space-y-1 flex-1">
+                    <h4 class="font-bold text-sm text-neutral-400">{{ t.infoHoursLabel }}</h4>
+                    <p class="text-base font-medium">{{ t.infoHoursValue }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <hr class="border-luxury-sage/10 dark:border-luxury-gold/10 max-w-7xl mx-auto" />
+
+        <!--====================== CONTACT FORM ======================-->
+        <section id="contact" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div class="bg-luxury-sage/5 dark:bg-luxury-cardDark border border-luxury-sage/10 rounded-3xl p-8 sm:p-12 space-y-8">
+            <div class="text-center space-y-2">
+              <h2 class="text-3xl font-bold">{{ t.formContactTitle }}</h2>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400">{{ t.formContactSub }}</p>
+            </div>
+
+            <form @submit.prevent="submitContactForm" class="space-y-6" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-neutral-400 block">{{ t.formLabelName }}</label>
+                  <input v-model="contactForm.name" required type="text" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-luxury-sage dark:focus:border-luxury-gold transition-colors" :placeholder="t.formPlaceName" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-neutral-400 block">{{ t.formLabelPhone }}</label>
+                  <input v-model="contactForm.phone" required type="tel" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-luxury-sage dark:focus:border-luxury-gold transition-colors" :class="currentLang === 'fa' ? 'text-right' : 'text-left'" :placeholder="t.formPlacePhone" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-neutral-400 block">{{ t.formLabelMessage }}</label>
+                <textarea v-model="contactForm.message" required rows="4" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-luxury-sage dark:focus:border-luxury-gold transition-colors" :placeholder="t.formPlaceMessage"></textarea>
+              </div>
+
+              <!-- Status Messages -->
+              <div v-if="contactStatus.text" :class="contactStatus.isError ? 'bg-red-500/10 text-red-500 border-red-500/20' : 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'" class="p-4 rounded-xl border text-sm text-center">
+                {{ contactStatus.text }}
+              </div>
+
+              <button type="submit" :disabled="contactStatus.loading" class="w-full bg-luxury-sage dark:bg-luxury-gold text-white dark:text-luxury-charcoal font-medium py-3.5 rounded-xl hover:bg-opacity-90 transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                <span v-if="contactStatus.loading">{{ t.formBtnLoading }}</span>
+                <span v-else>{{ t.formBtnSubmit }}</span>
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!--====================== APPOINTMENT RESERVATION MODAL ======================-->
+      <div v-if="isModalOpen" class="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-luxury-charcoal/60 backdrop-blur-sm animate-fadeIn">
+        <div class="bg-luxury-cream dark:bg-luxury-cardDark w-full max-w-xl rounded-2xl shadow-2xl border border-luxury-sage/10 dark:border-luxury-gold/10 overflow-hidden" :class="currentLang === 'fa' ? 'text-right' : 'text-left'">
+          <div class="bg-luxury-sage dark:bg-luxury-gold text-white dark:text-luxury-charcoal p-6 flex items-center justify-between" :class="currentLang === 'fa' ? 'flex-row' : 'flex-row-reverse'">
+            <button @click="closeModal" class="p-1 rounded-full hover:bg-white/10 transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+            <h3 class="text-lg font-bold">{{ t.modalTitle }}</h3>
+          </div>
+
+          <form @submit.prevent="submitAppointment" class="p-6 space-y-6">
+            <div class="space-y-2">
+              <label class="text-xs font-bold text-neutral-400 block">{{ t.modalLabelOwner }}</label>
+              <input v-model="appointmentForm.ownerName" required type="text" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-luxury-sage transition-colors" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-neutral-400 block">{{ t.modalLabelPet }}</label>
+                <input v-model="appointmentForm.petType" required type="text" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-luxury-sage transition-colors" :placeholder="t.modalPlacePet" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-neutral-400 block">{{ t.modalLabelPhone }}</label>
+                <input v-model="appointmentForm.phone" required type="tel" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-luxury-sage transition-colors" :class="currentLang === 'fa' ? 'text-left' : 'text-left'" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-neutral-400 block">{{ t.modalLabelDate }}</label>
+                <input v-model="appointmentForm.date" required type="date" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-luxury-sage transition-colors" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-neutral-400 block">{{ t.modalLabelService }}</label>
+                <select v-model="appointmentForm.service" class="w-full bg-white dark:bg-luxury-charcoal border border-neutral-200 dark:border-neutral-800 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-luxury-sage transition-colors">
+                  <option value="checkup">{{ t.optService1 }}</option>
+                  <option value="surgery">{{ t.optService2 }}</option>
+                  <option value="dental">{{ t.optService3 }}</option>
+                  <option value="grooming">{{ t.optService4 }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Validation/Status State -->
+            <div v-if="appointmentStatus.text" :class="appointmentStatus.isError ? 'bg-red-500/10 text-red-500 border-red-500/20' : 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'" class="p-3 rounded-xl border text-xs text-center">
+              {{ appointmentStatus.text }}
+            </div>
+
+            <div class="flex items-center gap-3 pt-2" :class="currentLang === 'fa' ? 'justify-end' : 'justify-content-start flex-row-reverse'">
+              <button type="button" @click="closeModal" class="px-4 py-2 rounded-xl text-sm font-medium hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors">{{ t.modalBtnCancel }}</button>
+              <button type="submit" :disabled="appointmentStatus.loading" class="bg-luxury-sage dark:bg-luxury-gold text-white dark:text-luxury-charcoal px-6 py-2 rounded-xl text-sm font-medium hover:opacity-90 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+                <span v-if="appointmentStatus.loading">{{ t.modalBtnSaving }}</span>
+                <span v-else>{{ t.modalBtnSubmit }}</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--====================== FOOTER ======================-->
+      <footer class="bg-neutral-50 dark:bg-luxury-charcoal border-t border-luxury-sage/10 dark:border-luxury-gold/10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-neutral-500 dark:text-neutral-400" :class="currentLang === 'fa' ? 'sm:flex-row' : 'sm:flex-row-reverse'">
+          <div class="flex items-center gap-2" :class="currentLang === 'fa' ? 'flex-row' : 'flex-row-reverse'">
+            <span class="font-bold text-luxury-sage dark:text-luxury-gold tracking-widest text-lg">ADIB CLINIC</span>
+            <span>{{ t.footerCopyright }}</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="/Front-end/ADIB/adib-clinic.js"></script>
+</body>
+</html>
