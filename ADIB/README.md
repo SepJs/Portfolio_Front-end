@@ -90,3 +90,12 @@ const toggleLanguage = () => {
 "Code is never finished, it only gets better."
 
 Developed with extreme precision for high-end deployment.
+
+```
+<br>
+
+---
+
+<div align=center>
+  
+Developed with 🌌 by Sepanta Ziaei // Founder of Inner Void.
