@@ -21,10 +21,10 @@
 │   ADIB VETERINARY CLINIC  ·  CORE ARCHITECTURE         │
 │                                                        │
 │   Type: Premium Responsive Interface Engine            │
-│   Stack: Vue 3 [CDN]  ·  Tailwind CSS  ·  Vanilla CSS │
+│   Stack: Vue 3 [CDN]  ·  Tailwind CSS  ·  Vanilla CSS  │
 │   Sub-Systems: Async Database Simulation  ·  Bilingual │
 │                                                        │
-│   "Engineered for maximum care and elite aesthetics."   │
+│   "Engineered for maximum care and elite aesthetics."  │
 │                                                        │
 └────────────────────────────────────────────────────────┘
 
