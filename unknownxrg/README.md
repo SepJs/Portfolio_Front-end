@@ -2,8 +2,6 @@
 
 A high-fidelity, responsive, and neon-cyberpunk themed portfolio website engineered with modern web technologies. This project showcases immersive responsive layouts, optimized performance, and a dark-mode cyberpunk aesthetic designed for advanced front-end demonstration.
 
-🚀 **Live Demo:** [unknownxrg.netlify.app](https://unknownxrg.netlify.app)
-
 ---
 
 ## 🔒 Production Security Notice
